@@ -17,5 +17,9 @@ Route::get('/', function () {
     return view('master.dashboard');
 });
 
-// Dashboard
+// product
 Route::get('/product', 'ProductController@index');
+Route::post('/product/add', 'ProductController@add');
+Route::get('/product/edit/{id}', 'ProductController@edit');
+Route::post('/product/update/{id}', 'ProductController@update');
+Route::get('/product/delete/{id}', 'ProductController@delete');
