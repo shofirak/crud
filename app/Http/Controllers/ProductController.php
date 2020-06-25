@@ -21,4 +21,29 @@ class ProductController extends Controller
 
         return redirect('/product')->with('sukses', 'Data Berhasil diinput');
     }
+
+    // edit && update
+    public function edit($id)
+    {
+        $product = \App\Product::find($id);
+        
+        return view('product.editProduct', compact('product'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $product = \App\Product::find($id);
+        $product->update($request->all());
+
+        return redirect('/product')->with('sukses', 'Data berhasil diupdate');
+    }
+
+    // delete
+    public function delete($id)
+    {
+        $product = \App\Product::find($id);
+        $product->delete();
+
+        return redirect('/product')->with('delete', 'Data berhasil dihapus');
+    }
 }
