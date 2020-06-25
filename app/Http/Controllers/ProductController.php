@@ -10,6 +10,6 @@ class ProductController extends Controller
     {
         $product = \App\Product::paginate(5);
 
-        return view('product.dataProduct');
+        return view('product.dataProduct', compact('product'));
     }
 }
